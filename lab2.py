@@ -4,7 +4,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 
-#Function to calculate the number of smartphones to order based on price and stock levels
+#Function to calculate the number of smartphones to order based on price and stock levels(Task 1)
 
 def calculate_tobuy(last_price, average_price, instock):
     if last_price < 0.7 * average_price and instock < 30: #if the price has dropped significantly and stock is low
@@ -14,7 +14,7 @@ def calculate_tobuy(last_price, average_price, instock):
     else: #if stock levels are sufficient
         return 0 # No need to order
 
-#Implementing the trading agent
+#Implementing the trading agent(Task 2)
 def trading_agent(price_history, stock_levels, average_price):
     tobuy_history = []
     for price, instock in zip(price_history, stock_levels):
@@ -25,7 +25,7 @@ def trading_agent(price_history, stock_levels, average_price):
             else:  # Stock level not critically low
                 tobuy = 15
         else:
-            tobuy = calculate_tobuy(price, average_price, instock)  # Use the custom logic to decide the order quantity
+            tobuy = calculate_tobuy(price, average_price, instock)  # Use the custom logic to decide the order quantity(Task 1 rule applied)
         tobuy_history.append(tobuy)
     return tobuy_history
 
